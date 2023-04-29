@@ -30,7 +30,7 @@ public class CalculadoraServiceImpl implements CalculadoraService {
 			return primerOperante - segundoOperante;
 		default:
 			LOGGER.error("Operador {} no implementado", operador);
-			return 0.0;
+			throw new ArithmeticException("La operación " + operador + " no está soportada");
 		}
 	}
 }
