@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="60" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Appenders>
+		<Console name="Console-Appender" target="SYSTEM_OUT">
+			<PatternLayout>
+				<pattern>
+						[%-5level] %d{dd/MM/yyyy HH:mm:ss.SSS} %t %X{request} %c - %msg{nolookups}%n
+				</pattern>>
+			</PatternLayout>
+		</Console>
+	</Appenders>
+	<Loggers>
+        <Logger name="com.example.calculadora" level="debug" additivity="false">
+            <AppenderRef ref="Console-Appender"/>
+        </Logger>
+        <Root level="error">
+            <AppenderRef ref="Console-Appender"/>
+        </Root>
+    </Loggers>
+</Configuration>

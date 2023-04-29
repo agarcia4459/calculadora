@@ -1,5 +1,7 @@
 package com.example.calculadora.api;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,8 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.calculadora.service.CalculadoraService;
 
+import io.corp.calculator.TracerImpl;
+
 @RestController
 public class CalculadoraController {
+	private static final Logger LOGGER = LoggerFactory.getLogger(CalculadoraController.class);
 
 	private final CalculadoraService calcService;
 
@@ -22,6 +27,10 @@ public class CalculadoraController {
 	@GetMapping(value = "/calc/{operacion}")
 	@ResponseBody
 	public ResponseEntity<Double> calcular(@PathVariable("operacion") final String operacion) {
-		return null;
+		LOGGER.debug("Inicio operacion {}", operacion);
+		final TracerImpl tracerAPI = new TracerImpl();
+		final double resultado = calcService.calcular(operacion);
+		tracerAPI.trace(resultado);
+		return ResponseEntity.ok(resultado);
 	}
 }
