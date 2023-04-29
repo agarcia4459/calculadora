@@ -1,9 +1,9 @@
 ## Setup
-1. Clone github repository <br />
+1. Clone github repository
 2. Abrir consola cmd en la carpeta donde se ejecuto clone
-3. Ejecutar "mvn clean package" <br />
+3. Ejecutar "mvn clean package"
 3. Ir a carpeta target "cd target"
-4. Ejecutar "java -jar calculadora-0.0.1-SNAPSHOT.jar" <br />
+4. Ejecutar "java -jar calculadora-0.0.1-SNAPSHOT.jar"
 5. Acceder desde navegador a http://localhost:8080/calculadora/swagger-ui.html
 
 ## Tecnologias
